@@ -1,0 +1,27 @@
+name: expressjs app
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions checkout
+        uses: actions/checkout@v3
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: install dependencies
+        run: npm istall
+
+      - name: start the server
+        run: nohup npm start & #started the service in banground with no hangup
+
+      - name: test the application
+        run: |
+          sleep 5
+          curl http://localhost:4002
