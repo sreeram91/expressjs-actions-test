@@ -16,7 +16,7 @@ jobs:
           node-version: "18.x"
 
       - name: install dependencies
-        run: npm istall
+        run: npm install
 
       - name: start the server
         run: nohup npm start & #started the service in banground with no hangup
